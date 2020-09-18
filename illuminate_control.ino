@@ -186,32 +186,29 @@ int readLampTriggered()
       // Serial.print("Received: ");
       // Serial.println(in, DEC);
       // return 0;
-
-      if (in >= 49 && in <= 56) {
-      // if (in >= 1 && in <= 7) {
           
-        switch (in) {
-          case 49:
-            return 1;
-          case 50:
-            return 2;
-          case 51:
-            return 3;
-          case 52:
-            return 4;
-          case 53:
-            return 5;
-          case 54:
-            return 6;
-          case 55:
-            return 7;
-          case 56:
-            return 8;
-          default:
-            return 0;
-        }
+      switch (in) {
+        case 49:
+          return 1;
+        case 50:
+          return 2;
+        case 51:
+          return 3;
+        case 52:
+          return 4;
+        case 53:
+          return 5;
+        case 54:
+          return 6;
+        case 55:
+          return 7;
+        case 56:
+          return 8;
+        default:
+          return 0;
       }
     }
+    
   } else {
     return readLampTriggeredPin();
   }
@@ -221,50 +218,50 @@ int readLampTriggered()
 
 int readLampTriggeredPin()
 {
-  bool pinoY0 = switchSignalToBoolean(digitalRead(2));
-  bool pinoY1 = switchSignalToBoolean(digitalRead(3));
-  bool pinoY2 = switchSignalToBoolean(digitalRead(4));
-  bool pinoY3 = switchSignalToBoolean(digitalRead(5));
+  bool pinY0 = switchSignalToBoolean(digitalRead(2));
+  bool pinY1 = switchSignalToBoolean(digitalRead(3));
+  bool pinY2 = switchSignalToBoolean(digitalRead(4));
+  bool pinY3 = switchSignalToBoolean(digitalRead(5));
 
   // LAMPADA 8 (1000)
-  if (pinoY3) {
+  if (pinY3) {
   
     return 8;
   
   } else {
 
     // LAMPADA 7 (0111)
-    if (pinoY2 && pinoY1 && pinoY0) {
+    if (pinY2 && pinY1 && pinY0) {
       return 7;
     }
 
     // LAMPADA 6 (0110)
-    if (pinoY2 && pinoY1 && !pinoY0) {
+    if (pinY2 && pinY1 && !pinY0) {
       return 6;
     }
 
     // LAMPADA 5 (0101)
-    if (pinoY2 && !pinoY1 && pinoY0) {
+    if (pinY2 && !pinY1 && pinY0) {
       return 5;
     }
 
     // LAMPADA 4 (0100)
-    if (pinoY2 && !pinoY1 && !pinoY0) {
+    if (pinY2 && !pinY1 && !pinY0) {
       return 4;
     }
 
     // LAMPADA 3 (0011)
-    if (!pinoY2 && pinoY1 && pinoY0) {
+    if (!pinY2 && pinY1 && pinY0) {
       return 3;
     }
 
     // LAMPADA 2 (0010)
-    if (!pinoY2 && pinoY1 && !pinoY0) {
+    if (!pinY2 && pinY1 && !pinY0) {
       return 2;
     }
 
     // LAMPADA 1 (0001)
-    if (!pinoY2 && !pinoY1 && pinoY0) {
+    if (!pinY2 && !pinY1 && pinY0) {
       return 1;
     }
   }
