@@ -208,7 +208,7 @@ int readLampTriggered()
           return 0;
       }
     }
-    
+
   } else {
     return readLampTriggeredPin();
   }
@@ -223,44 +223,44 @@ int readLampTriggeredPin()
   bool pinY2 = switchSignalToBoolean(digitalRead(4));
   bool pinY3 = switchSignalToBoolean(digitalRead(5));
 
-  // LAMPADA 8 (1000)
+  // LAMP 8 (1000)
   if (pinY3) {
   
     return 8;
   
   } else {
 
-    // LAMPADA 7 (0111)
+    // LAMP 7 (0111)
     if (pinY2 && pinY1 && pinY0) {
       return 7;
     }
 
-    // LAMPADA 6 (0110)
+    // LAMP 6 (0110)
     if (pinY2 && pinY1 && !pinY0) {
       return 6;
     }
 
-    // LAMPADA 5 (0101)
+    // LAMP 5 (0101)
     if (pinY2 && !pinY1 && pinY0) {
       return 5;
     }
 
-    // LAMPADA 4 (0100)
+    // LAMP 4 (0100)
     if (pinY2 && !pinY1 && !pinY0) {
       return 4;
     }
 
-    // LAMPADA 3 (0011)
+    // LAMP 3 (0011)
     if (!pinY2 && pinY1 && pinY0) {
       return 3;
     }
 
-    // LAMPADA 2 (0010)
+    // LAMP 2 (0010)
     if (!pinY2 && pinY1 && !pinY0) {
       return 2;
     }
 
-    // LAMPADA 1 (0001)
+    // LAMP 1 (0001)
     if (!pinY2 && !pinY1 && pinY0) {
       return 1;
     }
