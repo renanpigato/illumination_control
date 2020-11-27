@@ -124,10 +124,10 @@ void loop() {
       /**
        * DEBUG
        */
-      Serial.print("'Lamp': ");
+      Serial.print("Lamp: ");
       Serial.print(lampTriggered, DEC);
       Serial.print(",");
-      Serial.print("'ACTION': ");
+      Serial.print("ACTION: ");
       Serial.println(action, DEC);
     }
   }
@@ -223,6 +223,8 @@ int readLampTriggeredPin()
   bool pinY2 = switchSignalToBoolean(digitalRead(4));
   bool pinY3 = switchSignalToBoolean(digitalRead(5));
 
+  delay(150);
+  
   // LAMP 8 (1000)
   if (pinY3) {
   
